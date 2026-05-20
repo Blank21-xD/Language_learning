@@ -34,3 +34,17 @@ class ForumPost(models.Model):
 
     def __str__(self):
         return f"Post by {self.user.username} at {self.created_at}"
+
+
+class SecurityLog(models.Model):
+    # What type of attack did we detect? (e.g., "SQL Injection Attempt", "XSS Payload")
+    attack_type = models.CharField(max_length=100)
+
+    # The exact dirty text the hacker typed into our input box
+    malicious_payload = models.TextField()
+
+    # The clock stamp showing exactly when they tried it
+    detected_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"🚨 ALERT: {self.attack_type} blocked at {self.detected_at}"
