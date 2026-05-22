@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.db import connection
-# 1. Update your imports to include SecurityLog
 from .models import Dictionary, SecurityLog
 
 
@@ -43,6 +42,6 @@ def dictionary_search(request):
         'query_input': query_input,
         'security_mode': security_mode,
         'executed_query': executed_query,
-        'security_alert': security_alert,  # Passed to the layout plate
+        'security_alert': security_alert,
     }
     return render(request, 'korean_app/search.html', context)

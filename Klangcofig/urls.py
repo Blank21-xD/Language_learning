@@ -1,9 +1,8 @@
 from django.contrib import admin
-from django.urls import path
-from korean_app.views import dictionary_search
+from django.urls import path, include
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  #
-    path('search/', dictionary_search,
-         name='dictionary_search'),  # our playground url
+    path('admin/', admin.site.urls),
+    path('',  include('korean_app.urls')),
 ]
