@@ -1,0 +1,160 @@
+/* ==========================================
+   1. CORE DESIGN: CLEAN MODERN K-POP PASTEL
+   ========================================== */
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #f6f0ff 0%, #eaf9ff 100%);
+  --panel-white: #ffffff;
+  --text-dark: #23263a;
+  --accent-purple: #b072f1;
+  --accent-hover: #9333ea;
+}
+
+body {
+  background: var(--bg-gradient);
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.4s ease, color 0.4s ease;
+  /* Smooth visual shift */
+}
+
+/* Default Hidden Banner State */
+.hidden_banner {
+  display: none;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+nav a:hover {
+  background: #f3e8ff;
+  color: var(--accent-hover);
+}
+
+main {
+  flex: 1;
+  /* Pushes the footer to the absolute bottom of the screen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.content {
+  background: var(--panel-white);
+  width: 100%;
+  max-width: 800px;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(147, 51, 234, 0.03);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+
+/* ==========================================
+   2. CYBER SECURITY PANIC MODE
+   ========================================== */
+
+/* Triggers automatically when Django injects the 'alert-panic' class to <body> */
+
+body.alert-panic {
+  background: #110000;
+  /* Deep terminal void black/crimson */
+  color: #ff4444;
+  /* Neon attack red */
+  font-family: 'Courier New', Courier, monospace;
+  /* Monospace hacker aesthetic */
+}
+
+/* Transforms your clean content pane into an isolated sandbox terminal box */
+body.alert-panic .content {
+  background: #000000;
+  border: 2px dashed #ff4444;
+  box-shadow: 0 0 30px rgba(255, 68, 68, 0.2);
+}
+
+body.alert-panic header {
+  background: #1a0000;
+  border-bottom: 1px solid #ff4444;
+}
+
+body.alert-panic header h1,
+body.alert-panic nav a {
+  color: #ff4444;
+}
+
+body.alert-panic nav a:hover {
+  background: #330000;
+}
+
+/* Force the banner to show and flash color during an intrusion event */
+body.alert-panic #security_alarm {
+  display: block;
+  /* Overrides display:none */
+  background: #ff0000;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: alarm-flash 0.8s infinite;
+}
+
+@keyframes alarm-flash {
+  0% {
+    background: #ff0000;
+  }
+
+  50% {
+    background: #000000;
+  }
+
+  100% {
+    background: #ff0000;
+  }
+}

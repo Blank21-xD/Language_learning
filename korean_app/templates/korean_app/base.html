@@ -1,32 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Base</title>
 </head>
 
-<body>
-  <h1>Welcome to the Korean Language Learning Website</h1>
-  <nav>
-    <ul>
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="{% url 'greetings' %}">Greetings</a></li>
-      <li><a href="{% url 'slang' %}">Slang</a></li>
-    </ul>
-  </nav>
+<body class="{% if is_attack %} alert-panic {% endif %}">
+
+  <div id="security_alarm" class="hidden_banner">
+    Intrusion detected.
+  </div>
+
+  <header>
+    <h1>Welcome to the Korean Language Learning Website</h1>
+    <nav>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'greetings' %}">Greetings</a></li>
+        <li><a href="{% url 'slang' %}">Slang</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main>
+    <div class="content">
+      {% block content %}
+
+      {% endblock %}
+
+    </div>
+  </main>
 
 
 
-  {% block content %}
-  <div class="main_content">
-    <h1>IF this shows, it is successfuk</h1>
 
-
-
-    {% endblock %}
-
+  <footer>
+    <p>Safal Lama. All rights reserved.</p>
+  </footer>
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
