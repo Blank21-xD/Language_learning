@@ -20,10 +20,8 @@ body {
   display: flex;
   flex-direction: column;
   transition: background 0.4s ease, color 0.4s ease;
-  /* Smooth visual shift */
 }
 
-/* Default Hidden Banner State */
 .hidden_banner {
   display: none;
 }
@@ -67,9 +65,14 @@ nav a:hover {
   color: var(--accent-hover);
 }
 
+/* Active navigation link highlights managed by JS */
+nav a.active {
+  background: var(--accent-purple);
+  color: var(--panel-white);
+}
+
 main {
   flex: 1;
-  /* Pushes the footer to the absolute bottom of the screen */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,23 +96,16 @@ footer {
   background: rgba(255, 255, 255, 0.4);
 }
 
-
 /* ==========================================
-   2. CYBER SECURITY PANIC MODE
+   2. CYBER SECURITY PANIC MODE OVERRIDES
    ========================================== */
-
-/* Triggers automatically when Django injects the 'alert-panic' class to <body> */
 
 body.alert-panic {
   background: #110000;
-  /* Deep terminal void black/crimson */
   color: #ff4444;
-  /* Neon attack red */
   font-family: 'Courier New', Courier, monospace;
-  /* Monospace hacker aesthetic */
 }
 
-/* Transforms your clean content pane into an isolated sandbox terminal box */
 body.alert-panic .content {
   background: #000000;
   border: 2px dashed #ff4444;
@@ -130,10 +126,13 @@ body.alert-panic nav a:hover {
   background: #330000;
 }
 
-/* Force the banner to show and flash color during an intrusion event */
+body.alert-panic nav a.active {
+  background: #ff4444;
+  color: #000000;
+}
+
 body.alert-panic #security_alarm {
   display: block;
-  /* Overrides display:none */
   background: #ff0000;
   color: #ffffff;
   text-align: center;
