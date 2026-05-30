@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <meta charset="UTF-8">
@@ -21,6 +22,7 @@
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'greetings' %}">Greetings</a></li>
                 <li><a href="{% url 'slang' %}">Slang</a></li>
+                <li><a href="{% url 'guestbook' %}">Guestbook</a></li>
             </ul>
         </nav>
     </header>
@@ -38,4 +40,5 @@
 
     <script src="{% static 'js/main.js' %}"></script>
 </body>
+
 </html>

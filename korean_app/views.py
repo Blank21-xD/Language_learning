@@ -13,3 +13,10 @@ def greetings(request):
 
 def slang(request):
     return render(request, 'korean_app/slang.html')
+
+
+def guestbook(request):
+    context = {
+        'is_attack': False,
+    }
+    return render(request, 'korean_app/guestbook.html', context)
