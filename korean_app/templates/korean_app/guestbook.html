@@ -1,6 +1,33 @@
 {% extends 'korean_app/base.html' %}
 
 {% block content %}
-<h2>Guestbook Sign-In Log</h2>
-<p>Tomorrow we will build the database input form and hook up our custom backend intrusion defense filter right here.
-</p>
+<div class="guestbook-container">
+  <h2>Guestbook Sign-In Log</h2>
+  <p class="subtitle">Leave a message for the community or test the security layer sandbox parameters.</p>
+
+  <form action="{% url 'guestbook' %}" method="POST" class="secure-form-layout">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label for="username">User Handle / Name</label>
+      <input type="text" id="username" name="username" placeholder="e.g., Kim_Minjun" required>
+    </div>
+
+    <div class="form-group">
+      <label for="comment">Your Comment</label>
+      <textarea id="comment" name="comment" rows="4" placeholder="Type your message here..." required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Post Message</button>
+  </form>
+
+  <hr class="divider">
+
+  <div class="messages-display-vault">
+    <h3>Recent Log Entry Feed</h3>
+    <div class="empty-feed-notice">
+      No logs stored in database cluster yet. Ready for synchronization.
+    </div>
+  </div>
+</div>
+{% endblock %}
