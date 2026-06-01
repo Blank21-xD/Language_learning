@@ -28,10 +28,11 @@ class UserProfilereview(models.Model):
         return self.username
 
 
-class GuestBookComment(models.Model):
-    author = models.CharField(max_length=100)
-    comment_text = models.TextField()
+
+class GuestbookEntry(models.Model):
+    username = models.CharField(max_length=100)
+    comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.author
+        return f"{self.username} - {self.created_at.strftime('%Y-%m-%d %H:%M')}"
