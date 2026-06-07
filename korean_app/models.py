@@ -36,3 +36,14 @@ class GuestbookEntry(models.Model):
 
     def __str__(self):
         return f"{self.username} - {self.created_at.strftime('%Y-%m-%d %H:%M')}"
+
+
+class SecurityIncidentLog(models.Model):
+    attacker_ip = models.GenericIPAddressField()
+    user_agent = models.TextField()
+    flagged_username = models.CharField(max_length=100)
+    flagged_comment = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"INCIDENT - {self.attacker_ip} | {self.timestamp.strftime('%Y-%m-%d %H:%M')}"
