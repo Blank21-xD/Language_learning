@@ -1,13 +1,20 @@
 from django.contrib import admin
-from .models import GuestbookEntry
+from .models import Category, Vocabulary, UserProfilereview, GuestbookEntry, SecurityIncidentLog
 
-@admin.register(GuestbookEntry)
-class GuestbookEntryAdmin(admin.ModelAdmin):
-    # This displays these columns neatly in a table layout inside the panel
-    list_display = ('username', 'comment', 'created_at')
-    
-    # Adds a clickable search bar to quickly scan logs by user or text strings
-    search_fields = ('username', 'comment')
-    
-    # Adds a sidebar filter pane to sort logs by submission date
-    list_filter = ('created_at',)
+# This tells Django: "Hey, show these tables in the Admin dashboard!"
+
+
+@admin.register(SecurityIncidentLog)
+class SecurityIncidentLogAdmin(admin.ModelAdmin):
+    list_display = ('attacker_ip', 'flagged_username', 'timestamp')
+    list_filter = ('timestamp',)
+    search_fields = ('attacker_ip', 'flagged_username')
+    readonly_fields = ('attacker_ip', 'user_agent',
+                       'flagged_username', 'flagged_comment', 'timestamp')
+
+
+# Register your other models too
+admin.site.register(Category)
+admin.site.register(Vocabulary)
+admin.site.register(UserProfilereview)
+admin.site.register(GuestbookEntry)
