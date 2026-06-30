@@ -1,9 +1,48 @@
 {% extends 'korean_app/base.html' %}
+{% load static %}
 
 {% block content %}
-<h2>Essential Survival Greetings</h2>
-<ul>
-  <li><strong>안녕하세요 (Annyeonghaseyo):</strong> Hello (Polite)</li>
-  <li><strong>감사합니다 (Gamsahabnida):</strong> Thank you (Formal)</li>
-</ul>
+<div class="greetings-container">
+  <h2>🇰🇷 Essential Survival Greetings</h2>
+  <p class="subtitle">Mastering the basics is the first step to cultural fluency.</p>
+
+  <!-- Greeting Item 1 -->
+  <div class="message-card">
+    <strong>안녕하세요 (Annyeonghaseyo)</strong>
+    <p><em>Polite Hello</em></p>
+    <p>Use this for strangers, teachers, or colleagues. It is the safest way to start any conversation.</p>
+  </div>
+
+  <!-- Greeting Item 2 -->
+  <div class="message-card">
+    <strong>반갑습니다 (Bangapseumnida)</strong>
+    <p><em>Nice to meet you</em></p>
+    <p>A formal way to express pleasure upon meeting someone for the first time.</p>
+  </div>
+
+  <!-- Greeting Item 3 -->
+  <div class="message-card">
+    <strong>식사하셨어요? (Siksa-hasyeosseoyo?)</strong>
+    <p><em>Have you eaten?</em></p>
+    <p>In Korea, this is a sign of care rather than an invitation to a meal. A classic way to check on a friend's
+      well-being.</p>
+  </div>
+
+  <!-- Greeting Item 4 -->
+  <div class="message-card">
+    <strong>감사합니다 (Gamsahabnida)</strong>
+    <p><em>Thank you (Formal)</em></p>
+    <p>The standard way to show gratitude. Always bow slightly when saying this to show respect.</p>
+  </div>
+
+  <!-- Image Section -->
+  <div class="message-card" style="text-align: center; margin-top: 20px;">
+    <h3>Cultural Tip: The Bow</h3>
+    <img src="{% static 'images/bowing.png' %}" alt="Korean Bowing Etiquette"
+      style="max-width: 100%; border-radius: 12px; margin-top: 10px;">
+    <p style="font-size: 0.9rem; color: #64748b; margin-top: 10px;">
+      A slight bow while greeting shows respect and humility.
+    </p>
+  </div>
+</div>
 {% endblock %}
