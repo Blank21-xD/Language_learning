@@ -340,3 +340,44 @@ body.alert-panic .text-muted {
   color: #ff8888;
   font-size: 0.9rem;
 }
+
+/* New Grid Layout for Greetings */
+.greetings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.greeting-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #f1f0f5;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.greeting-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(176, 114, 241, 0.15);
+}
+
+.korean-text {
+  font-size: 1.8rem;
+  color: var(--accent-purple);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Ensure buttons inside cards look uniform */
+.greeting-card .submit-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+.home-container {
+  width: 100%;
+}
