@@ -9,7 +9,13 @@ def home(request):
 
 
 def greetings(request):
-    return render(request, 'korean_app/greetings.html')
+    # This queries the database to get all entries in the Vocabulary table
+    all_words = Vocabulary.objects.all()
+
+    context = {
+        'vocabulary_list': all_words
+    }
+    return render(request, 'korean_app/greetings.html', context)
 
 
 def slang(request):

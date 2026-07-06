@@ -7,55 +7,17 @@
   <p class="subtitle">Mastering the basics is the first step to cultural fluency.</p>
 
   <div class="greetings-grid">
-    <!-- Core Greetings -->
+    {% for word in vocabulary_list %}
     <div class="greeting-card">
-      <div class="korean-text">안녕하세요</div>
-      <strong>Annyeonghaseyo</strong>
-      <p>Polite Hello. Use this for strangers, teachers, or colleagues.</p>
+      {% if word.image_filename %}
+      <img src="{% static 'images/' %}{{ word.image_filename }}" alt="{{ word.hangul }}"
+        style="width:80px; margin-bottom:10px;">
+      {% endif %}
+      <div class="korean-text">{{ word.hangul }}</div>
+      <strong>{{ word.romanization }}</strong>
+      <p>{{ word.definition }}</p>
     </div>
-
-    <div class="greeting-card">
-      <div class="korean-text">반갑습니다</div>
-      <strong>Bangapseumnida</strong>
-      <p>Nice to meet you. Used when meeting someone for the first time.</p>
-    </div>
-
-    <div class="greeting-card">
-      <div class="korean-text">식사하셨어요?</div>
-      <strong>Siksa-hasyeosseoyo?</strong>
-      <p>Have you eaten? A sign of care and well-being in Korean culture.</p>
-    </div>
-
-    <div class="greeting-card">
-      <div class="korean-text">감사합니다</div>
-      <strong>Gamsahabnida</strong>
-      <p>Thank you (Formal). Always bow slightly when saying this.</p>
-    </div>
-
-    <!-- Expanded Social Phrases -->
-    <div class="greeting-card">
-      <div class="korean-text">죄송합니다</div>
-      <strong>Joesong-hamnida</strong>
-      <p>I am sorry (Formal). Essential for professional social etiquette.</p>
-    </div>
-
-    <div class="greeting-card">
-      <div class="korean-text">잠시만요</div>
-      <strong>Jamsiman-yo</strong>
-      <p>Just a moment. Useful when asking someone to wait or passing through a crowd.</p>
-    </div>
-
-    <div class="greeting-card">
-      <div class="korean-text">수고하세요</div>
-      <strong>Sugohaseyo</strong>
-      <p>Keep up the good work. Used when leaving a workplace or ending a task.</p>
-    </div>
-
-    <div class="greeting-card">
-      <div class="korean-text">잘 먹겠습니다</div>
-      <strong>Jal meok-get-seumnida</strong>
-      <p>I will eat well. Said before starting a meal to show gratitude.</p>
-    </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}

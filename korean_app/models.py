@@ -9,11 +9,13 @@ class Category(models.Model):
         return self.name
 
 
+# models.py
 class Vocabulary(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     hangul = models.CharField(max_length=100)
     romanization = models.CharField(max_length=100)
     definition = models.TextField()
+    image_filename = models.CharField(max_length=100, blank=True, null=True) # e.g., 'bowing.png'
 
     def __str__(self):
         return self.hangul
