@@ -1,9 +1,25 @@
 {% extends 'korean_app/base.html' %}
+{% load static %}
 
 {% block content %}
-<h2>Trending K-Drama & Street Slang</h2>
-<ul>
-  <li><strong>대박 (Daebak):</strong> Awesome / Shocking</li>
-  <li><strong>대충 (Daechung):</strong> Lazily / Whateva</li>
-</ul>
+<div class="greetings-container">
+  <h2>🔥 Trending K-Drama & Street Slang</h2>
+  <p class="subtitle">Understand the words that keep the conversation fun.</p>
+
+  <div class="greetings-grid">
+    {% for word in vocabulary_list %}
+    <div class="greeting-card">
+      {% if word.image_filename %}
+      <img src="{% static 'images/' %}{{ word.image_filename }}" alt="{{ word.hangul }}"
+        style="width:80px; margin-bottom:10px;">
+      {% endif %}
+      <div class="korean-text">{{ word.hangul }}</div>
+      <strong>{{ word.romanization }}</strong>
+      <p>{{ word.definition }}</p>
+    </div>
+    {% empty %}
+    <p>No slang terms added to the database yet. Check back soon!</p>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

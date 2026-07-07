@@ -19,7 +19,13 @@ def greetings(request):
 
 
 def slang(request):
-    return render(request, 'korean_app/slang.html')
+    # This filters the database to show only entries where the category name is 'Slang'
+    slang_words = Vocabulary.objects.filter(category__name='Slang')
+
+    context = {
+        'vocabulary_list': slang_words
+    }
+    return render(request, 'korean_app/slang.html', context)
 
 
 def guestbook(request):
